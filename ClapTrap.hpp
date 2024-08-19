@@ -16,6 +16,23 @@
 # include <iostream>
 # include <string>
 
-std::string mensaje(std::string msg);
+class ClapTrap
+{
+    private:
+        std::string _name;
+        int _hitpoints;
+        int _energy_points;
+        int _attack_damage;
+    public:
+        ClapTrap();
+        ClapTrap(std::string name);
+        ClapTrap(const ClapTrap& cpy);
+        ClapTrap &operator=(const ClapTrap &rhs);
+        void    attack(const string::string& target);
+        void    takeDamage(unsigned int amount);
+        void    beRepaired(unsigned int amount);
+        ~ClapTrap();
+};
+//std::string mensaje(std::string msg);
 
 # endif

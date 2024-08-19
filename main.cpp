@@ -14,8 +14,12 @@
 
 int main()
 {
+    
+}
+/*int main()
+{
     std::string mensajito = "funcionaaaaaa";
 
     mensaje(mensajito);
     return (0);
-}
+}*/
