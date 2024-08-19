@@ -14,23 +14,23 @@
 
 ClapTrap::ClapTrap() //constructor por defecto, inicializa todos los mienbros
 {
-    _name = "no se";
+    _name = "Unknow";
     _hitpoints(10);
     _energy_points(10);
     _attack_damage(0);
     
-    std::cout << "primer constructor empezado" << std::endl;
+    std::cout << "ClapTrap: " << _name << "first constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name) //constructor con parametro, inicializa los mienbros
 {                                    // pero este constructor acepta un nombre
     if (name.empty())                // si el nombre esta vacio, asignale uno.
-        this->_name = "Nombre";
+        this->_name = "Ermenegildo";
     _name(name);
     _hitpoints(10);
     _energy_points(10);
     _attack_damage(0);
-    std::cout << "segundo constructor empezado" << std::endl;
+    std::cout << "ClapTrap: " << _name << "second constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& cpy) // constructor de copia
@@ -50,9 +50,20 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &rhs) // constructor de operador de
     return *this;
 }
 
-void ClapTrap::attack(const string::string& target)
+void ClapTrap::attack(const string::string &target)
 {
-    //imprimir mensaje explicando el proceso
+    if (this->_hitpoints <= 0)
+        std::cout << "ClapTrap: " << _name << "Can no longer attack, has 0 life" << std::endl;
+    else if (this->_energy_points <= 0)
+        std::cout << "ClapTrap: " << _name << "Does not have enough energy to attack" << std::endl;
+    else
+    {
+        std::cout << "ClapTrap " << _name 
+                  << " attacks " << target
+                  << " causing " << _attack_damage 
+                  << " points of damage!" << std::endl;
+            this->_energy_points -= 1;
+    }
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
