@@ -14,8 +14,15 @@
 
 int main()
 {
-    std::string msg = "Pruebando";
+    ClapTrap Zeus("Zeus");
+    ClapTrap Athena("Athena");
+    ClapTrap unnamebot("");
+    ClapTrap cpyZeus(Zeus);
 
-    mensaje(msg);
+    Zeus.attack("Athena");
+    Athena.takeDamage(10);
+    Athena.attack("Zeus");
+    Zeus.takeDamage(10);
+    Zeus.beRepaired(10);
     return (0);
 }
