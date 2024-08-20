@@ -14,7 +14,16 @@
 
 int main()
 {
-    
+    ClapTrap Zeus("Zeus");
+    ClapTrap Athena("Athena");
+    ClapTrap unnameBot("");
+    ClapTrap cpyZeus(Zeus);
+
+    Zeus.attack("Athena");
+    Athena.takeDamage(5);
+    Athena.attack("Zeus");
+    Zeus.takeDamage(5);
+    Zeus.beRepaired(5);
 }
 /*int main()
 {
