@@ -6,11 +6,11 @@
 /*   By: agrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 18:45:48 by agrimald          #+#    #+#             */
-/*   Updated: 2024/08/20 18:45:50 by agrimald         ###   ########.fr       */
+/*   Updated: 2024/08/21 19:08:56 by agrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "ClapTrap.hpp"
+# include "ScavTrap.hpp"
 
 ClapTrap::ClapTrap()
     : _name("Unknow"), _hitpoint(10), _energy_point(10), _attack_damage(0)
@@ -46,7 +46,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &rhs)
 void ClapTrap::attack(const std::string& target)
 {
     if (this->_hitpoint <= 0)
-        std::cout << "ClapTrap: " << _name << "Can no longer attack, has 0 life." << std::endl;
+        std::cout << "ClapTrap: " << _name << " \033[33mCan no longer attack, has 0 life.\033[0m" << std::endl;
     else if (this->_energy_point <= 0)
         std::cout << "ClapTrap: " << _name << "Does not have enough energy to attack." << std::endl;
     else
@@ -66,11 +66,11 @@ void ClapTrap::takeDamage(unsigned int amount)
     else
     {
         std::cout << "ClapTrap " << _name 
-                  << " \033[32mtake\033[0m " << amount 
+                  << " \033[32mtakes\033[0m " << amount 
                   << " points of damage!. " << std::endl;
-        this->_energy_point -= 1;
-
+        this->_hitpoint -= amount;
     }
+    std::cout << _name << " Current HP: " << _hitpoint << std::endl;
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
@@ -82,7 +82,7 @@ void ClapTrap::beRepaired(unsigned int amount)
     else
     {
         std::cout << "ClapTrap " << _name
-                  << " \033[32mtake\033[0m " << amount
+                  << " \033[32mis repaired for\033[0m " << amount
                   << " points of reapaired. " << std::endl;
         this->_hitpoint += amount;
         this->_energy_point -= 1;
@@ -91,5 +91,5 @@ void ClapTrap::beRepaired(unsigned int amount)
 
 ClapTrap::~ClapTrap()
 {
-    std::cout << "\033[30mAre u crazy??, Im dead xP!\033[0m" << std::endl;
+    std::cout << "ClapTrap: "<< _name << " \033[30mAre u crazy??, Im dead xP!\033[0m" << std::endl;
 }

@@ -20,8 +20,12 @@ class ScavTrap : public ClapTrap
 {
     public:
         ScavTrap();
-        ~ScavTrap();
+        ScavTrap(std::string name);
+        ScavTrap(const ScavTrap& cpy);
+        ScavTrap &operator=(const ScavTrap &rhs);
+        void attack(const std::string& target);
         void guardGate();
-}
+        ~ScavTrap();
+};
 
 # endif

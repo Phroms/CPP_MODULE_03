@@ -10,19 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "ClapTrap.hpp"
+# include "ScavTrap.hpp"
 
 int main()
 {
     ClapTrap Zeus("Zeus");
     ClapTrap Athena("Athena");
-    ClapTrap unnamebot("");
-    ClapTrap cpyZeus(Zeus);
+    ScavTrap MercX("MercX");
 
     Zeus.attack("Athena");
-    Athena.takeDamage(10);
+    Athena.takeDamage(5);
     Athena.attack("Zeus");
-    Zeus.takeDamage(10);
-    Zeus.beRepaired(10);
+    Zeus.takeDamage(5);
+    Zeus.beRepaired(5);
+
+    MercX.guardGate();
+    MercX.attack("Athena");
+    Athena.takeDamage(20);
+    Athena.attack("MerX");
     return (0);
 }
