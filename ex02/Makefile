@@ -18,7 +18,7 @@ CYAN = \033[96m
 RED = \033[91m
 END_COLOR = \033[0m
 
-SRC = main.cpp ClapTrap.cpp
+SRC = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 
 OBJECTS = $(SRC:.cpp=.o)
 

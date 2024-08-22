@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "ClapTrap.hpp"
+# include "FragTrap.hpp"
 
 ClapTrap::ClapTrap()
     : _name("Unknow"), _hitpoint(100), _energy_point(100), _attack_damage(30)
@@ -23,7 +23,7 @@ ClapTrap::ClapTrap(std::string name)
 {
     if (name.empty())
         this->_name = "Pruebita";
-    std::cout << "ClapTrap: " << _name << "murder begins" << std::endl;
+    std::cout << "ClapTrap: " << _name << " \033[91mmurder begins\033[0m" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& cpy)
@@ -91,5 +91,5 @@ void ClapTrap::beRepaired(unsigned int amount)
 
 ClapTrap::~ClapTrap()
 {
-    std::cout << "ClapTrap: " << _name << "Are u crazy??, Im dead xP!" << std::endl;
+    std::cout << "ClapTrap: " << _name << " \033[30mAre u crazy??, Im dead xP!\033[0m" << std::endl;
 }
